@@ -1,0 +1,125 @@
+body{
+    background-color: rgb(99, 135, 151);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+}
+.box{
+    background-color: rgb(209, 223, 228,0.5);
+    width: 980px;
+    float: right;
+    margin:15px auto;
+    padding: 25px;
+    border-radius: 20px;
+}
+.date{
+    color: rgb(105, 117, 128);
+}
+.content{
+    border: solid 1px rgb(106, 115, 121);
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    min-height: calc(100vh - 50px); 
+    padding: 20px;
+}
+
+.pic{
+    text-align: center;
+}
+.pic > img{
+    width: 600px;
+}
+#main_menu{
+    padding-left: 0px;
+    list-style: none;
+}
+#main_menu li{
+    display: inline-block;
+}
+#main_menu li a{
+    text-decoration: none;
+    font-size: large;
+    color: rgb(46, 63, 78);
+    padding: 5px 25px;
+    display: block;
+    justify-content: center; 
+    align-items: center; 
+    height: 200px;
+}
+#main_menu li a:hover{
+    color: rgb(23, 107, 107);
+}
+.footer {
+    background-color: #a8c5e0; 
+    color: #fff; 
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+}
+/* 圖片容器的樣式 */
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* 圖片的樣式 */
+.carousel img {
+    width: 100%;  /* 設定圖片寬度填滿容器 */
+    height: 100%;  /* 設定圖片高度填滿容器 */
+    object-fit: contain;
+    border: 3px dashed #94cec8; 
+    border-radius: 8px;  
+    padding: 8px;  
+}
+
+/* 圖片集的容器 */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}

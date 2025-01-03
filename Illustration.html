@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的網站</title>
+
+    <link rel="stylesheet" href="Illustration.css">
+</head>
+
+<body>
+    <nav>
+        <ul id="main_menu">
+            <li><a href="about.html">關於</a></li>
+            <li><a href="front.html">回首頁</a></li>
+            <li><a href="Photography.html">Photography</a></li>
+        </ul>
+    </nav>
+
+    <!-- 新聞排版練習 -->
+    <div class="box">
+        <h1>早上好啊 這裡是我的繪畫作品</h1>
+    </div>
+
+    <!-- 音樂播放區 -->
+    <div>
+        <h1>也許有音樂</h1>
+
+        <!-- 隱藏的 YouTube iframe -->
+        <div style="display:none;">
+            <iframe id="yt-player" width="0" height="0" src="https://www.youtube.com/embed/g8GZsucF-as?enablejsapi=1"
+                frameborder="0" allow="autoplay"></iframe>
+        </div>
+
+        <!-- 播放/暫停音樂按鈕 -->
+        <button onclick="toggleMusic()">播放/暫停音樂</button>
+
+        <script>
+            // 初始化 YouTube Player API
+            let player;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('yt-player', {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            }
+
+            // 等待播放器準備好後開始播放
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+
+            // 切換播放/暫停
+            function toggleMusic() {
+                if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            }
+
+            // 加載 YouTube Iframe API
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        </script>
+    </div>
+
+    <!-- 圖片輪播 -->
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="inage/寶石.png" alt="1">
+            <img src="inage/早川秋.png" alt="2">
+            <img src="inage/聖誕.png" alt="3">
+            <img src="inage/期末漫畫完稿.png" alt="4">
+        </div>
+    </div>
+
+    <script>
+        // 自動切換圖片
+        let index = 0;
+        const images = document.querySelector('.carousel-images');
+        const totalImages = document.querySelectorAll('.carousel img').length;
+
+        function moveToNextImage() {
+            index = (index + 1) % totalImages;
+            images.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(moveToNextImage, 2000); // 每2秒切換一次圖片
+    </script>
+
+   <!--<script src="圖片.js"></script>-->
+
+</body>
+
+</html>
