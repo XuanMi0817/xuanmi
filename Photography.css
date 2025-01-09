@@ -12,13 +12,26 @@ body:hover {
     background-image: url('inage/1.png'); /* 當鼠標懸停時，背景圖轉換 */
 }
 
+/* 設置盒子初始為透明 */
 .box {
-    background-color: rgb(209, 223, 228, 0.5);
+    background-color: rgba(219, 228, 231, 0.5);
     width: 980px;
-    float: right;
     margin: 15px auto;
     padding: 25px;
     border-radius: 20px;
+    color: rgb(16, 52, 85);
+    opacity: 0; /* 初始為透明 */
+    animation: fadeIn 2s forwards; /* 添加淡入動畫 */
+}
+
+/* 定義淡入動畫 */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .date {

@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif; /* 設置字體 */
 }
 
-/* 盒子樣式 */
+/* 設置盒子初始為透明 */
 .box {
     background-color: rgba(219, 228, 231, 0.5);
     width: 980px;
@@ -16,6 +16,18 @@ body {
     padding: 25px;
     border-radius: 20px;
     color: rgb(16, 52, 85);
+    opacity: 0; /* 初始為透明 */
+    animation: fadeIn 2s forwards; /* 添加淡入動畫 */
+}
+
+/* 定義淡入動畫 */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* 內容樣式 */

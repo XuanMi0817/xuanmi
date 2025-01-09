@@ -1,3 +1,4 @@
+/* 基础样式保持不变 */
 body {
     background-color: rgb(130, 171, 189);
     margin: 0;
@@ -14,26 +15,25 @@ nav {
     margin: 0;
     background-color: transparent;
     position: sticky;
-    top: 0; /* 導航欄固定在頁面的最上方 */
+    top: 0; /* 导航栏固定在页面的最上方 */
     width: 100%;
     display: flex;
-    justify-content: center; /* 導覽列項目置中 */
+    justify-content: center; /* 导航列项目置中 */
     align-items: center;
     height: 50px;
-    z-index: 10; /* 確保導航欄在其他內容之上 */
-    background-color: rgba(255, 255, 255, 0.8); /* 半透明背景，提升可讀性 */
+    z-index: 10; /* 确保导航栏在其他内容之上 */
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明背景，提升可读性 */
 }
 
-/* 設定 h1 標題顏色 */
 h1 {
-    color: #e3e0f0; /* 設定繪畫作品標題顏色 */
+    color: #d9d6e7; /* 设置绘画作品标题颜色 */
     text-align: center;
-    font-size: 36px; /* 設定字體大小 */
+    font-size: 36px; /* 设置字体大小 */
     margin-top: 20px;
 }
 
 #main_meru {
-    list-style: none; /* 去除列表點 */
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
@@ -58,47 +58,103 @@ h1 {
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 三列排列 */
-    gap: 20px; /* 圖片框之間的間距 */
+    gap: 20px; /* 图片框之间的间距 */
     padding: 50px;
-    margin-top: 60px; /* 讓容器下移，避免被固定的導航欄遮擋 */
+    margin-top: 60px; /* 让容器下移，避免被固定的导航栏遮挡 */
 }
 
 .box {
-    width: 300px;
-    height: 200px;
+    width: 500px;
+    height: 300px;
     background-color: rgb(223, 223, 236);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
+    opacity: 1; /* 保证框架始终可见 */
+    animation: slideInRight 1s ease-out forwards; /* 添加动画效果 */
 }
 
+/* 动画延迟设置，确保每个框的图片以不同的时间延迟逐个渐入 */
+.box:nth-child(1) {
+    animation-delay: 0s;
+}
+.box:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.box:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.box:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.box:nth-child(5) {
+    animation-delay: 0.8s;
+}
+.box:nth-child(6) {
+    animation-delay: 1s;
+}
+.box:nth-child(7) {
+    animation-delay: 1.2s;
+}
+.box:nth-child(8) {
+    animation-delay: 1.4s;
+}
+.box:nth-child(9) {
+    animation-delay: 1.6s;
+}
+
+/* 图片滑入效果 */
 .box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover; /* 保持比例並填滿框 */
+    opacity: 0; /* 图片初始透明 */
+    transform: translateX(-100%); /* 图片初始位置在框架左侧 */
+    animation: fadeInRight 1s forwards; /* 使用 fadeInRight 动画 */
+    width: 100%; /* 图片填满框 */
+    height: auto;
 }
 
-/* 響應式設計 */
+/* 向右滑入动画 */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%); /* 起始时图片框在右侧 */
+    }
+    100% {
+        transform: translateX(0); /* 动画结束时回到正常位置 */
+    }
+}
+
+/* 图片从左边滑入且渐显 */
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%); /* 从左侧进入 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* 完全显示并且位于正常位置 */
+    }
+}
+
+/* 响应式设计 */
 @media (max-width: 1024px) {
     .container {
-        grid-template-columns: repeat(2, 1fr); /* 平板設備顯示兩列 */
+        grid-template-columns: repeat(2, 1fr); /* 平板设备显示两列 */
     }
     #main_meru li a {
-        font-size: 14px; /* 適應中等設備，調整字體大小 */
+        font-size: 14px; /* 适应中等设备，调整字体大小 */
     }
 }
 
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr; /* 手機設備顯示單列 */
-        padding: 20px; /* 調整內邊距 */
+        grid-template-columns: 1fr; /* 手机设备显示单列 */
+        padding: 20px; /* 调整内边距 */
     }
-    
+
     #main_meru {
-        flex-direction: column; /* 垂直排列導覽列 */
-        align-items: flex-start; /* 垂直排列對齊 */
+        flex-direction: column; /* 垂直排列导航列 */
+        align-items: flex-start; /* 垂直排列对齐 */
     }
 
     #main_meru li {
@@ -106,23 +162,24 @@ h1 {
     }
 
     #main_meru li a {
-        font-size: 12px; /* 更小的字體 */
-        padding: 10px 15px; /* 增加點擊區域 */
+        font-size: 12px; /* 更小的字体 */
+        padding: 10px 15px; /* 增加点击区域 */
     }
 }
 
 @media (max-width: 480px) {
     .box {
-        width: 100%; /* 在更小的設備上，圖片框寬度佔滿父容器 */
-        height: auto; /* 高度自動調整 */
+        width: 100%; /* 在更小的设备上，图片框宽度占满父容器 */
+        height: auto; /* 高度自动调整 */
     }
 
     #main_meru li a {
         font-size: 12px;
-        padding: 10px; /* 增加導覽列文字的可點擊範圍 */
+        padding: 10px; /* 增加导航列文字的可点击范围 */
     }
 }
-/* 頁腳設置 */
+
+/* 页脚设置 */
 .footer {
     background-color: #c28787;
     color: #fff;
@@ -134,5 +191,5 @@ h1 {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 5; /* 保證頁腳位於內容下方 */
+    z-index: 5; /* 保证页脚位于内容下方 */
 }
