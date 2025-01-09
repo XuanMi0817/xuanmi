@@ -1,37 +1,14 @@
-body{
-    background-color: rgb(99, 135, 151);
-    background-image: url(inage/自畫像.png);
-    background-size: 50%;
-    background-repeat: no-repeat;
+body {
+    background-color: rgb(130, 171, 189);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
     height: 100vh;
-    
-}
-.box{
-    background-color: rgb(209, 223, 228,0.5);
-    width: 980px;
-    float: right;
-    margin:15px auto;
-    padding: 25px;
-    border-radius: 20px;
-}
-.date{
-    color: rgb(105, 117, 128);
-}
-.content{
-    border: solid 1px rgb(106, 115, 121);
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-    min-height: calc(100vh - 50px); 
-    padding: 20px;
+    flex-direction: column;
 }
 
-.pic{
-    text-align: center;
-}
-.pic > img{
-    width: 600px;
-}
 nav {
     padding: 0;
     margin: 0;
@@ -47,6 +24,13 @@ nav {
     background-color: rgba(255, 255, 255, 0.8); /* 半透明背景，提升可讀性 */
 }
 
+/* 設定 h1 標題顏色 */
+h1 {
+    color: #e3e0f0; /* 設定繪畫作品標題顏色 */
+    text-align: center;
+    font-size: 36px; /* 設定字體大小 */
+    margin-top: 20px;
+}
 
 #main_meru {
     list-style: none; /* 去除列表點 */
@@ -61,69 +45,39 @@ nav {
 
 #main_meru li a {
     text-decoration: none;
-    font-size: 16px; /* 調整字體大小 */
+    font-size: 16px;
     color: rgb(46, 63, 78);
     padding: 5px 15px;
     display: inline-block;
 }
 
 #main_meru li a:hover {
-    color: rgb(23, 107, 107);
+    color: rgb(161, 192, 192);
 }
-.footer {
-    background-color: #a8c5e0; 
-    color: #fff; 
-    text-align: center;
-    padding: 15px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    position: fixed; 
-    bottom: 0; 
-    left: 0; 
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 三列排列 */
+    gap: 20px; /* 圖片框之間的間距 */
+    padding: 50px;
+    margin-top: 60px; /* 讓容器下移，避免被固定的導航欄遮擋 */
 }
-/* 設置音波背景的樣式 */
-.audio-wave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+
+.box {
+    width: 300px;
+    height: 200px;
+    background-color: rgb(223, 223, 236);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    border-radius: 10px;
     overflow: hidden;
-    z-index: -1; /* 將其置於其他內容後面 */
 }
 
-/* 生成多個條形 */
-.audio-wave::before {
-    content: '';
-    display: flex;
-    gap: 10px; /* 條形間距 */
-    width: 100%;
-    height: 100%;
-}
-
-/* 每個條形的基本樣式 */
-.audio-wave div {
-    width: 2px;
-    background-color: rgba(255, 255, 255, 0.3);
-    animation: bounce 1s ease-in-out infinite;
-}
-
-/* 不同條形的動畫延遲 */
-.audio-wave div:nth-child(odd) {
-    animation-delay: 0.2s;
-}
-.audio-wave div:nth-child(even) {
-    animation-delay: 0.5s;
-}
-
-/* 跳動動畫 */
-@keyframes bounce {
-    0%, 100% { transform: scaleY(0.3); }
-    50% { transform: scaleY(1.2); }
+.box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* 保持比例並填滿框 */
 }
 
 /* 響應式設計 */
@@ -167,4 +121,18 @@ nav {
         font-size: 12px;
         padding: 10px; /* 增加導覽列文字的可點擊範圍 */
     }
+}
+/* 頁腳設置 */
+.footer {
+    background-color: #c28787;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 5; /* 保證頁腳位於內容下方 */
 }

@@ -1,65 +1,149 @@
-body{
+/* 設置背景和全局樣式 */
+body {
     background-color: rgb(99, 135, 151);
     background-image: url(inage/IMG_0642.png);
     background-size: 50%;
     background-repeat: no-repeat;
     height: 100vh;
+    font-family: Arial, sans-serif; /* 設置字體 */
 }
-.box{
-    background-color: rgb(209, 223, 228,0.5);
-    float: right;
+
+/* 盒子樣式 */
+.box {
+    background-color: rgba(219, 228, 231, 0.5);
     width: 980px;
-    margin:15px auto;
+    margin: 15px auto;
     padding: 25px;
     border-radius: 20px;
+    color: rgb(16, 52, 85);
 }
-.date{
-    color: rgb(105, 117, 128);
-}
-.content{
+
+/* 內容樣式 */
+.content {
     border: solid 1px rgb(106, 115, 121);
     padding: 20px;
     text-align: center;
     margin-top: 10px;
-    min-height: calc(100vh - 50px); 
-    padding: 20px;
+    min-height: calc(100vh - 50px);
+    font-size: 16px; /* 預設字體大小 */
 }
 
-.pic{
+/* 圖片樣式 */
+.pic {
     text-align: center;
 }
-.pic > img{
+.pic > img {
     width: 600px;
 }
-#main_meru{
-    padding-left: 0px;
-    list-style: none;
+
+/* 導航欄樣式 */
+nav {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.8);
 }
-#main_meru li{
+
+#main_meru {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+}
+
+#main_meru li {
+    margin: 0 10px;
+}
+
+#main_meru li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: rgb(46, 63, 78);
+    padding: 5px 15px;
     display: inline-block;
 }
-#main_meru li a{
-    text-decoration: none;
-    font-size: large;
-    color: rgb(46, 63, 78);
-    padding: 5px 25px;
-    display: block;
-    justify-content: center; 
-    align-items: center; 
-    height: 200px;
+
+#main_meru li a:hover {
+    color: rgb(161, 192, 192);
 }
-#main_meru li a:hover{
-    color: rgb(23, 107, 107);
-}
+
+/* 頁腳樣式 */
 .footer {
-    background-color: #a8c5e0; 
-    color: #fff; 
+    background-color: #a8c5e0;
+    color: #fff;
     text-align: center;
     padding: 15px;
     position: relative;
     bottom: 0;
     width: 100%;
-    position: fixed; 
-    bottom: 0; 
-    left: 0; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* 平板設備顯示兩列 */
+    }
+
+    #main_meru li a {
+        font-size: 14px; /* 適應中等設備，調整字體大小 */
+    }
+
+    .content {
+        font-size: 15px; /* 使內容文字稍微小一點 */
+        padding: 15px; /* 適應較小螢幕的內邊距 */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* 手機設備顯示單列 */
+        padding: 20px; /* 調整內邊距 */
+    }
+
+    #main_meru {
+        flex-direction: column; /* 垂直排列導覽列 */
+        align-items: flex-start; /* 垂直排列對齊 */
+    }
+
+    #main_meru li {
+        margin: 5px 0;
+    }
+
+    #main_meru li a {
+        font-size: 12px; /* 更小的字體 */
+        padding: 10px 15px; /* 增加點擊區域 */
+    }
+
+    .content {
+        font-size: 14px; /* 使內容文字大小適應中小型設備 */
+        padding: 10px; /* 減小內邊距以適應屏幕 */
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 100%; /* 在更小的設備上，圖片框寬度佔滿父容器 */
+        height: auto; /* 高度自動調整 */
+    }
+
+    #main_meru li a {
+        font-size: 12px;
+        padding: 10px; /* 增加導覽列文字的可點擊範圍 */
+    }
+
+    .content {
+        font-size: 13px; /* 更小的字體 */
+        padding: 5px; /* 減少內容區域的內邊距 */
+    }
 }

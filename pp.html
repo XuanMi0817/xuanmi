@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的網站</title>
+    <link rel="stylesheet" href="pp.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <nav>
+        <ul id="main_meru">
+            <li><a href="about.html">關於</a></li>
+            <li><a href="index.html">回首頁</a></li>
+            <li><a href="Photography.html">Photography</a></li>
+        </ul>
+    </nav>
+
+    <h1>繪畫作品</h1>
+
+    <div class="container">
+        <div class="box"><img src="inage/1.png" alt="圖片1"></div>
+        <div class="box"><img src="inage/2.png" alt="圖片2"></div>
+        <div class="box"><img src="inage/20221003_112744.jpg" alt="圖片3"></div>
+        <div class="box"><img src="inage/IMG_0642.png" alt="圖片4"></div>
+        <div class="box"><img src="inage/全員.png" alt="圖片5"></div>
+        <div class="box"><img src="inage/寶石.png" alt="圖片6"></div>
+        <div class="box"><img src="inage/早川秋.png" alt="圖片7"></div>
+        <div class="box"><img src="inage/期末漫畫完稿.png" alt="圖片8"></div>
+        <div class="box"><img src="inage/聖誕.png" alt="圖片9"></div>
+    </div>
+
+
+    <script>
+        AOS.init();
+
+        AOS.init({
+            // Global settings:
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 120, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 400, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+    </script>
+</body>
+
+</html>
