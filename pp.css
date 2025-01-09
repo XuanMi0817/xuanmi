@@ -64,7 +64,8 @@ h1 {
 }
 
 .box {
-    width: 500px;
+    width: 100%; /* 自适应宽度 */
+    max-width: 500px; /* 限制最大宽度 */
     height: 300px;
     background-color: rgb(223, 223, 236);
     display: flex;
@@ -111,7 +112,8 @@ h1 {
     transform: translateX(-100%); /* 图片初始位置在框架左侧 */
     animation: fadeInRight 1s forwards; /* 使用 fadeInRight 动画 */
     width: 100%; /* 图片填满框 */
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* 保持图片比例 */
 }
 
 /* 向右滑入动画 */
