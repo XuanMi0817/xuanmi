@@ -1,58 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>玄青似羋</title>
     <link rel="stylesheet" href="D11370563 新聞.css">
 </head>
 <body>
+    <!-- 導航列 -->
     <nav>
         <ul id="main_meru">
             <li><a href="about.html">關於</a></li>
             <li><a href="pp.html">Illustration</a></li>
             <li><a href="Photography.html">Photography</a></li>
         </ul>
-
     </nav>
-        <!---新聞排版練習-->
-        <div class="box">
-            <h1>玄青似羋</h1>
-            <h1>Xuan Qing Si Mi</h1>
 
-            <script>
-                AOS.init();
+    <!-- 主要內容區 -->
+    <div class="box">
+        <h1>玄青似羋</h1>
+        <h1>Xuan Qing Si Mi</h1>
+    </div>
 
-                // You can also pass an optional settings object
-                // below listed default settings
-                AOS.init({
-                    // Global settings:
-                    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-                    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-                    initClassName: 'aos-init', // class applied after initialization
-                    animatedClassName: 'aos-animate', // class applied on animation
-                    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-                    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-                    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-                    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+    <!-- AOS 動畫初始化 -->
+    <script>
+        AOS.init({
+            // Global settings:
+            disable: false, // 可以設定為 'phone', 'tablet', 'mobile' 等設備禁用動畫
+            startEvent: 'DOMContentLoaded', // 初始化事件
+            initClassName: 'aos-init', // 初始類名
+            animatedClassName: 'aos-animate', // 動畫的類名
+            useClassNames: false, // 使用 data-aos 的內容作為類名
+            disableMutationObserver: false, // 禁用自動變異檢測
+            debounceDelay: 50, // 窗口調整的延遲時間
+            throttleDelay: 99, // 滾動延遲時間
 
+            // 元素的自定義設置
+            offset: 120, // 偏移量 (px)
+            delay: 0, // 延遲時間 (0-3000ms)
+            duration: 400, // 動畫持續時間
+            easing: 'ease', // 動畫的緩動
+            once: false, // 動畫是否只觸發一次
+            mirror: false, // 是否鏡像動畫
+            anchorPlacement: 'top-bottom' // 觸發位置
+        });
+    </script>
 
-                    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-                    offset: 120, // offset (in px) from the original trigger point
-                    delay: 0, // values from 0 to 3000, with step 50ms
-                    duration: 400, // values from 0 to 3000, with step 50ms
-                    easing: 'ease', // default easing for AOS animations
-                    once: false, // whether animation should happen only once - while scrolling down
-                    mirror: false, // whether elements should animate out while scrolling past them
-                    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-                });
-            </script>
-
-
-        </div>
+    <!-- 頁腳 -->
     <footer class="footer">
-            <p>到底喽</p>
+        <p>到底喽</p>
     </footer>
 </body>
 </html>
